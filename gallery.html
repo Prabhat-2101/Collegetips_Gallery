@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CollegeTips Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Grechen+Fuemen&family=Iceberg&family=Jacquard+12&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+        font-family: "Iceberg", sans-serif;
+    }
+    .img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.4s ease;
+    }
+
+    .img-wrapper:hover .img-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    #cursor{
+        height: 20px;
+        width: 20px;
+        position: fixed;
+        top: 0;left: 0;
+        background-color: rgb(169, 166, 166);
+        border-radius: 50%;
+        z-index: 100;
+    }
+    .active{
+        font-weight: bold;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div id="cursor"></div>
+    <section id="main" class="p-8 max-w-7xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-6">📸 CollegeTips Photo Gallery</h1>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <button class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-full active" data-category="all">All</button>
+        <button class="filter-btn bg-blue-400 text-white px-4 py-2 rounded-full" data-category="team">Team Vibes 🤝</button>
+        <button class="filter-btn bg-pink-400 text-white px-4 py-2 rounded-full" data-category="creative">Creative Campaigns 🎨</button>
+        <button class="filter-btn bg-yellow-400 text-white px-4 py-2 rounded-full" data-category="fun">Work Hard, Play Hard 🥳</button>
+        <button class="filter-btn bg-green-400 text-white px-4 py-2 rounded-full" data-category="bts">Behind-The-Scenes 🎥</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery">
+
+        <!-- Example Image Card with Hover Text -->
+        <div class="gallery-item team" data-category="team" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Team Vibes" href="gallery/team1.webp">
+                <img src="gallery/team1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">और क्या चल रहा है</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item creative" data-category="creative" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Creative Campaign" href="gallery/creative1.webp">
+                <img src="gallery/creative1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Social Buzzing 🎨</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item fun" data-category="fun" data-aos="flip-left" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Party Mode" href="gallery/fun2.webp">
+                <img src="gallery/fun1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Fun Karo</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item bts" data-category="bts" data-aos="fade-right" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Behind the Scenes" href="gallery/bts1.webp">
+                <img src="gallery/bts1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Behind-The-Scenes 🎥</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item team" data-category="team" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Team Vibes" href="gallery/team1.webp">
+                <img src="gallery/team1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Team Vibes 🤝</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item creative" data-category="creative" data-aos="fade-up" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Creative Campaign" href="gallery/creative1.webp">
+                <img src="gallery/creative1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Creative Campaigns 🎨</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item fun" data-category="fun" data-aos="flip-left" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Party Mode" href="gallery/fun1.webp">
+                <img src="gallery/fun1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Work Hard, Play Hard 🥳</div>
+            </a>
+            </div>
+        </div>
+
+        <div class="gallery-item bts" data-category="bts" data-aos="fade-right" data-aos-duration="1000">
+            <div class="img-wrapper rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+            <a data-fancybox="gallery" data-caption="Behind the Scenes" href="gallery/bts1.webp">
+                <img src="gallery/bts1.webp" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" />
+                <div class="img-caption text-sm sm:text-base">Behind-The-Scenes 🎥</div>
+            </a>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <script>
+        const cursor = document.querySelector('#cursor');
+        const main = document.querySelector('#main');
+
+        main.addEventListener('mousemove', (e) => {
+            var x = e.x; var y = e.y;
+            console.log(x,y);
+            gsap.to(cursor,{
+                duration: 1,
+                x: x,
+                y: y,
+                ease:"back.out"
+            })
+        });
+        const buttons = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('active');
+                buttons.forEach(btn => {
+                    if (btn !== button) {
+                        btn.classList.remove('active');
+                    }
+                });
+                const category = button.dataset.category;
+
+                items.forEach(item => {
+                item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
